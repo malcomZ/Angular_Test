@@ -1,4 +1,7 @@
 <p>This text is normal.</p>
-<div *ngFor='let new of news$' style="text-align: center">
-  <h2> {{ new.title }} </h2>
+<pre>{{ data | json}}</pre>
+<div *ngFor='let article of data.articles' style="text-align: left">
+  <h2> {{ article.title }} </h2>
+  <a href="{{ article.url }}" target="_blank"> {{ article.url }} </a>
+  <pre>{{ article | json }}</pre>
 </div>

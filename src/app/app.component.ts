@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { News } from './news.model';
-import { DataService } from './data.service';
+import {Component, OnInit} from '@angular/core';
+import {Data} from './data.model';
+import {DataService} from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +8,14 @@ import { DataService } from './data.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  news$: News[];
-  constructor(private dataService: DataService) {}
+  data: Data[];
+  title: 'App-News';
+
+  constructor(private dataService: DataService) {
+  }
+
   ngOnInit() {
-    return this.dataService.getTitle()
-    .subscribe(data => this.news$ = data);
+    return this.dataService.getData()
+      .subscribe(data => this.data = data);
   }
 }
